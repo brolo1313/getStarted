@@ -1,5 +1,5 @@
-import { Input } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+
+import { Component,  OnInit } from '@angular/core';
 
 interface User {
   name: string;
@@ -46,7 +46,7 @@ const USERS : User[] =
 })
 export class TableBodyComponent implements OnInit {
 
- @Input()  users = USERS;
+ users = USERS;
 
  
   

@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-td.component.scss']
 })
 export class TableTdComponent implements OnInit {
-
+  
+  // @Input() users: any;
   
   constructor() { }
 
