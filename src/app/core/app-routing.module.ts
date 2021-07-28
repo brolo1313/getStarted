@@ -9,6 +9,13 @@ const routes: Routes = [
         (m) => m.DashboardModule
       ),
   },
+  {
+    path: 'team',
+    loadChildren: () =>
+      import('../pages/team/team.module').then(
+        (m) => m.TeamModule
+      ),
+  },
 ];
 
 @NgModule({
