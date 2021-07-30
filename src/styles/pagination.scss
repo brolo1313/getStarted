@@ -1,0 +1,24 @@
+
+
+.page-item.active .page-link {
+    color : blue !important;
+    background-color: #eef2ff !important;
+    border-color: lightgrey !important;
+
+}
+
+.page-link {
+    color: grey!important;
+}
+
+
+#footer_wrapper {
+    display:flex;
+    justify-content: flex-end;
+    
+}
+
+
+.page-link:focus {
+    box-shadow: none!important;
+}

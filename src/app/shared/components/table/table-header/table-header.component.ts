@@ -1,23 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TableTitles } from './@types/table-headers.model';
 
 
-interface Titles {
-  name: string;
-  title:string;
-  status:string;
-  role:string;
-  
 
-}
 
-const Title : Titles[]= [
-  {
-    name: 'NAME',
-    title: 'TITLE',
-    status: 'STATUS',
-    role: 'ROLE'
-  }
-];
+
 
 @Component({
   selector: 'app-table-header',
@@ -26,7 +13,9 @@ const Title : Titles[]= [
 })
 export class TableHeaderComponent implements OnInit {
 
-  title = Title;
+  @Input() titles: TableTitles[];
+
+  
 
   constructor() { }
 

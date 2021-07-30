@@ -1,76 +1,34 @@
+<thead class="bg-gray-50">
+  <tr>
+    
+    <th
+      *ngFor='let items of titles'
+      scope="col"
+      class="
+        px-6
+        py-3
+        text-left text-xs
+        font-medium
+        text-gray-500
+        uppercase
+        tracking-wider
+      "
+    >
 
- <!-- <table class="min-w-full divide-y divide-gray-200"> -->
-  <thead class="bg-gray-50">
-    <tr *ngFor="let titles of title">
-      <th
-        scope="col"
-        class="
-          px-6
-          py-3
-          text-left text-xs
-          font-medium
-          text-gray-500
-          uppercase
-          tracking-wider
-        "
-      >
-        {{titles.name}}
-      </th>
-      <th
-        scope="col"
-        class="
-          px-6
-          py-3
-          text-left text-xs
-          font-medium
-          text-gray-500
-          uppercase
-          tracking-wider
-        "
-      >
-      {{titles.title}}
-      </th>
-      <th
-        scope="col"
-        class="
-          px-6
-          py-3
-          text-left text-xs
-          font-medium
-          text-gray-500
-          uppercase
-          tracking-wider
-        "
-      >
-      {{titles.status}}
-      </th>
-      <th
-        scope="col"
-        class="
-          px-6
-          py-3
-          text-left text-xs
-          font-medium
-          text-gray-500
-          uppercase
-          tracking-wider
-        "
-      >
-      {{titles.role}}
-      </th>
-      <th scope="col" class="relative px-6 py-3">
-        <span class="sr-only">Edit</span>
-      </th>
-    </tr>
-  
-  </thead>
- <!-- </table> -->
+    <span [ngClass]="{'sr-only' :!items.visible}">
+      {{items.text}}
+    </span>
+    
 
- 
-  
+    <!-- <ng-container *ngIf=' items.visible'; else textSRonly>
+        {{items.text}}
+    </ng-container>
 
-
-
-         
-
-
+    <ng-template #textSRonly>
+      <span class="sr-only">Edit</span>
+    </ng-template>
+       -->
+    </th>
+    
+  </tr>
+</thead>

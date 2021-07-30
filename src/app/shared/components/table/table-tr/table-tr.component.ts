@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 
@@ -9,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TableTrComponent implements OnInit {
   
-  @Input() users;
+
 
   constructor() { }
 
