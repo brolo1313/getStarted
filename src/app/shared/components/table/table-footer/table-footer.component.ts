@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableFooterComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  
 }

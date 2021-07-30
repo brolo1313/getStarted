@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MemberActionRoutingModule } from './member-action-routing.module';
 import { MemberActionContainerComponent } from './components/member-action-container/member-action-container.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MemberActionContainerComponent } from './components/member-action-conta
   ],
   imports: [
     CommonModule,
-    MemberActionRoutingModule
+    MemberActionRoutingModule,
+    SharedModule
   ]
 })
 export class MemberActionModule { }
