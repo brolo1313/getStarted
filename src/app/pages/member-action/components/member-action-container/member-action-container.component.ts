@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component,  OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MemberService } from 'src/app/shared/services/member.service';
 
 @Component({
   selector: 'app-member-action-container',
@@ -10,7 +11,7 @@ export class MemberActionContainerComponent implements OnInit {
 
   form: FormGroup;        //  переменная форм имеет интерфейс FormGroup
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private memberService: MemberService) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -21,7 +22,7 @@ export class MemberActionContainerComponent implements OnInit {
         {
           firstName: this.formBuilder.control(null),
           lastName: this.formBuilder.control(null),
-          email: this.formBuilder.control(null),
+          email: this.formBuilder.control(null, [Validators.email,Validators.required]),
           city: this.formBuilder.control(null),
           region: this.formBuilder.control(null),
           zip: this.formBuilder.control(null),
@@ -30,9 +31,17 @@ export class MemberActionContainerComponent implements OnInit {
 
         },
       )
+
+  
     }
+
+
      
     action() : void {
+      // console.log(this.form.value)
+      // if(this.form.invalid){
+        
+      // }
       console.log(this.form.value)
     }
       

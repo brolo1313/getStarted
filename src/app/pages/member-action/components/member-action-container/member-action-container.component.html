@@ -18,16 +18,11 @@
               <div class="px-4 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-6 gap-6">
                   <div class="col-span-6 sm:col-span-3">
-                    <label
-                      for="first-name"
-                      class="block text-sm font-medium text-gray-700"
-                      >First name</label
-                    >
-                    <input
+
+                    <app-input  label="Твое имя">
+                      <input
                       formControlName="firstName"
                       type="text"
-                      name="first-name"
-                      id="first-name"
                       autocomplete="given-name"
                       class="
                         mt-1
@@ -39,16 +34,15 @@
                         border-gray-300
                         rounded-md
                       "
-                    />
+                      />
+
+                    </app-input>
+
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label
-                      for="last-name"
-                      class="block text-sm font-medium text-gray-700"
-                      >Last name</label
-                    >
-                    <input
+                    <app-input label="Твоя Фамилия">
+                      <input
                       formControlName="lastName"
                       type="text"
                       name="last-name"
@@ -65,15 +59,14 @@
                         rounded-md
                       "
                     />
+                    </app-input>
+                    
+                   
                   </div>
 
                   <div class="col-span-6 sm:col-span-4">
-                    <label
-                      for="email-address"
-                      class="block text-sm font-medium text-gray-700"
-                      >Email address</label
-                    >
-                    <input
+                    <app-input label="Email address">
+                      <input
                       formControlName="email"
                       type="text"
                       name="email-address"
@@ -89,16 +82,15 @@
                         border-gray-300
                         rounded-md
                       "
-                    />
+                      />
+                    </app-input>
+                    
+                    
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label
-                      for="country"
-                      class="block text-sm font-medium text-gray-700"
-                      >Country / Region</label
-                    >
-                    <select
+                    <app-input label="Страна / Регион" >
+                      <select
                       formControlName="country"
                       id="country"
                       name="country"
@@ -123,15 +115,14 @@
                       <option>Canada</option>
                       <option>Mexico</option>
                     </select>
+                    </app-input>
+                   
+                    
                   </div>
 
                   <div class="col-span-6">
-                    <label
-                      for="street-address"
-                      class="block text-sm font-medium text-gray-700"
-                      >Street address</label
-                    >
-                    <input
+                    <app-input label="Адрес">
+                      <input
                       formControlName="street"
                       type="text"
                       name="street-address"
@@ -147,16 +138,15 @@
                         border-gray-300
                         rounded-md
                       "
-                    />
+                      />
+                    </app-input>
+                    
+                    
                   </div>
 
                   <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <label
-                      for="city"
-                      class="block text-sm font-medium text-gray-700"
-                      >City</label
-                    >
-                    <input
+                    <app-input label="Город">
+                      <input
                       formControlName="city"
                       type="text"
                       name="city"
@@ -172,15 +162,14 @@
                         rounded-md
                       "
                     />
+                    </app-input>
+                    
+                    
                   </div>
 
                   <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                    <label
-                      for="state"
-                      class="block text-sm font-medium text-gray-700"
-                      >State / Province</label
-                    >
-                    <input
+                    <app-input label="Штат / провинция">
+                      <input
                       formControlName="region"
                       type="text"
                       name="state"
@@ -195,16 +184,14 @@
                         border-gray-300
                         rounded-md
                       "
-                    />
+                    /></app-input>
+                    
+                   
                   </div>
 
                   <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                    <label
-                      for="postal-code"
-                      class="block text-sm font-medium text-gray-700"
-                      >ZIP / Postal</label
-                    >
-                    <input
+                    <app-input label="почтовый индекс">
+                      <input
                       formControlName="zip"
                       type="text"
                       name="postal-code"
@@ -220,13 +207,22 @@
                         border-gray-300
                         rounded-md
                       "
-                    />
+                      />
+                    </app-input>
+                   
+                    
                   </div>
                 </div>
               </div>
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <button
                   (click)="action()"
+                  [disabled]="form.invalid"
+                  [ngClass]= "{
+                    'bg-red-400': form.invalid,
+                    'bg-indigo-600': form.valid
+                        }"
+                  
                   type="submit"
                   class="
                     inline-flex
@@ -239,7 +235,7 @@
                     font-medium
                     rounded-md
                     text-white
-                    bg-indigo-600
+                    
                     hover:bg-indigo-700
                     focus:outline-none
                     focus:ring-2
