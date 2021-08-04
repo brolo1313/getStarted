@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MemberService } from 'src/app/shared/services/member.service';
 
 
 
@@ -11,7 +12,7 @@ export class TableTrComponent implements OnInit {
   
 
 
-  constructor() { }
+  constructor(public memberService: MemberService) { }
 
   ngOnInit(): void {
   }

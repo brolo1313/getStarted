@@ -2,7 +2,6 @@
     <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
     <app-btn routerLink="/member/new"> New Member </app-btn>
 
-    
 </app-page-header>
 <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="flex flex-col">
@@ -28,8 +27,10 @@
                     <app-table>
                         <app-table-header [titles]=tableHeaders></app-table-header>
                         <app-table-body>
-                            <tr *ngFor="let item of peoples" class="hover:bg-gray-50 cursor-pointer">
+                            <tr *ngFor="let item of memberService.peoples" class="hover:bg-gray-50 cursor-pointer">
+                              <!-- <app-table-tr *ngFor="let item of memberService.peoples" class="hover:bg-gray-50 cursor-pointer"> -->
                                 <td class="px-6 py-4 whitespace-nowrap">
+                                 <!-- <app-table-td> -->
                                     <div class="flex items-center">
                                     <div class="flex-shrink-0 h-10 w-10">
                                         <img
@@ -40,13 +41,15 @@
                                     </div>
                                     <div class="ml-4">
                                         <div class="text-sm font-medium text-gray-900">
-                                            {{item.name}}
+                                            {{item.firstName}}
+                                            {{item.lastName}}
                                         </div>
                                         <div class="text-sm text-gray-500">
                                             {{item.email}}
                                         </div>
                                     </div>
                                     </div>
+                                <!-- </app-table-td>       -->
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900">
@@ -90,35 +93,30 @@
                                     "
                                 >
                                     <a
+                                    [routerLink]= "['/member', item.id]"
                                     href="#"
                                     class="text-indigo-600 hover:text-indigo-900"
                                     >Edit</a
                                     >
                                 </td>
+                            <!-- </app-table-tr>     -->
                             </tr>
                         </app-table-body>
                     </app-table>
 
-                    <div id="footer_wrapper"  class="
-                    bg-white
-                    px-4
-                    py-3
-                    flex
-                    items-center
-                    justify-between
-                    border-t border-gray-200
-                    sm:px-6
-                    ">
-                        <ngb-pagination
-                            [page]="page"
-                            [pageSize]="pageSize"
-                            [collectionSize]="peoples.length"
-                            (pageChange) = "pageChange($event)"
-                            
-                            [disabled]="false" 
-                            [boundaryLinks]="true">
-                        </ngb-pagination>
-                    </div>
+                <app-table-footer>
+                    <ngb-pagination
+                        [page]="memberService.page"
+                        [pageSize]="memberService.pageSize"
+                        [collectionSize]="memberService.peoples.length"
+                        (pageChange) = "pageChange($event)"
+                        
+                        [disabled]="false" 
+                        [boundaryLinks]="true">
+                    </ngb-pagination>
+                </app-table-footer>
+
+
                     
                 </div> 
             </div> 

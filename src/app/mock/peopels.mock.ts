@@ -1,14 +1,18 @@
 export const people = [
-    {
-        "name": "Jane Cooper",
-        "title": "Frontend developer",
+    { 
+        "id" : '282b',
+        "firstName": "Jane Cooper",
+        "lastName": "Coope",
+        "title" : "Front End developer",
         "department": "Optimization",
         "role": "Admin",
         "email": "jane.cooper@example.com",
         "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
       },
       {
-        "name": "Roy Lopez",
+        "id" : '283b',
+        "firstName": "Adnot ",
+        "lastName": "Don",
         "title": "Backend developer",
         "department": "server",
         "role": "Member",
@@ -16,20 +20,29 @@ export const people = [
         "image": "https://randomuser.me/api/portraits/med/men/90.jpg"
       },
       {
-        "name": "Andrew Yupin",
+        "id" : '284b',
+        "firstName": "Andreii ",
+        "lastName": "Yupin",
         "title": "Front End developer",
         "department": "web",
         "role": "admin",
-        "email": "brolo1341@gmail.com",
+        "email": "555@co.re",
         "image": "https://i.ibb.co/JBqCFdt/1.jpg"
       },
       {
-        "name": "Andrew Yupin",
+        "id" : '285b',
+        "firstName": "Jack ",
+        "lastName": "Russel",
         "title": "Front End developer",
         "department": "web",
         "role": "admin",
-        "email": "brolo1341@gmail.com",
-        "image": "https://i.ibb.co/JBqCFdt/1.jpg"
+        "email": "123@me.com",
+        "image": "https://randomuser.me/api/portraits/med/men/90.jpg"
       },
       
 ]
+
+
+
+
+  

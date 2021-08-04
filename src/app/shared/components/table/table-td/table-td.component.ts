@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { MemberService } from 'src/app/shared/services/member.service';
 
 
 
@@ -12,7 +13,7 @@ export class TableTdComponent implements OnInit {
   
   
   
-  constructor() { }
+  constructor(public memberService: MemberService) { }
 
   ngOnInit(): void {
   }
