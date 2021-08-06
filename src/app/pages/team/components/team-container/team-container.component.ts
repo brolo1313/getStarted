@@ -37,11 +37,16 @@ export class TeamContainerComponent implements OnInit {
     
   ];
 
-  constructor(public teamService: TeamService) { }
+  constructor(
+    public teamService: TeamService,
+    public memberService: MemberService,
+    ) { }
 
   ngOnInit(): void {
-
+   
   }
   
 
 }
+
+
