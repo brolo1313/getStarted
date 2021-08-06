@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { people } from 'src/app/mock/peopels.mock';
 import { Member } from '../models/members.model';
 
@@ -7,28 +8,42 @@ import { Member } from '../models/members.model';
 })
 export class MemberService  {
 
-  peoples: any[] = people;
+  peoples: any[] = [...people];
+  
+  people$ = new BehaviorSubject <any>([...people]);
+  
 
   
   page = 1;
   pageSize = 1;
   currentPage: number;
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
   addMember(member:Member) :void {
+    // Создаем новый массив,скопируем д-ные текущего значения бехавиор и добвать обьэкт 
     
-      this.peoples.push({...member, id: this.getId()});
+      this.people$.next(
+        [...this.people$.getValue(), 
+        {...member, id: this.getId()}])
+
+      // this.peoples.push({...member, id: this.getId()});
   }
 
   getMember(id: string) :Member {
-    return this.peoples.find(peoples => peoples.id === id)
+    return this.people$.getValue().find((i) => i.id === id);
   }
 
   editMember(id:string, member:Member) :void  {
-      const index = this.peoples.findIndex(peoples => peoples.id === id);
-      this.peoples[index] = {...this.peoples[index], ...member};
-      
+      const index = this.people$.getValue().findIndex(i => i.id === id);
+     
+      const members = [...this.people$.getValue()];
+
+      members[index] = {...members[index], ...member};  
+
+      this.people$.next(members);
   }
 
   getId() : string{

@@ -37,6 +37,8 @@ export class DashboardContainerComponent implements OnInit {
     
   ];
 
+ 
+
 
 
   constructor(public memberService: MemberService) {
@@ -47,9 +49,7 @@ export class DashboardContainerComponent implements OnInit {
   }
 
    
-  // page = 1;
-  // pageSize = 1;
-  // currentPage: number;
+
 
   pageChange(page: number): void{
     // console.log(page);

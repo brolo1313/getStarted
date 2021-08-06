@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TableTitles } from 'src/app/shared/components/table/table-header/@types/table-headers.model';
+import { MemberService } from 'src/app/shared/services/member.service';
+import { TeamService } from 'src/app/shared/services/team.service';
 
 @Component({
   selector: 'app-team-container',
@@ -7,9 +10,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamContainerComponent implements OnInit {
 
-  constructor() { }
+
+ 
+
+  tableHeaders : TableTitles[] = [
+    {
+      text: 'Name', 
+      visible: true,
+    },
+    {
+      text: 'Title', 
+      visible: true,
+    },
+    {
+      text: 'Status', 
+      visible: true,
+    },
+    {
+      text: 'Role', 
+      visible: true,
+    },
+    {
+      text: 'Edit', 
+      visible: false,
+    }
+    
+  ];
+
+  constructor(public teamService: TeamService) { }
 
   ngOnInit(): void {
+
   }
+  
 
 }

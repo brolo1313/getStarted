@@ -1,9 +1,11 @@
+import { people } from './../../../../mock/peopels.mock';
 import { Component,  OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { State } from 'src/app/shared/@types/state.model';
 
 import { MemberService } from 'src/app/shared/services/member.service';
+import { TeamService } from 'src/app/shared/services/team.service';
 
 @Component({
   selector: 'app-member-action-container',
@@ -14,6 +16,7 @@ export class MemberActionContainerComponent implements OnInit {
 
   form: FormGroup;       //  переменная форм имеет интерфейс FormGroup
   state: State;
+  page : String;
   actionTitle:string;
 
 
@@ -25,15 +28,27 @@ export class MemberActionContainerComponent implements OnInit {
      private memberService: MemberService,
      private activatedRoute: ActivatedRoute,
      private router: Router,
+     private teamService: TeamService,
      ) {}
 
   ngOnInit(): void {
    this.initView();
     this.initForm();
+
+    this.memberService.people$.subscribe( people => {
+      
+    })
   }
+
+
+
+
+
 
     initView() : void {
       this.state = this.activatedRoute.snapshot.data.state;
+      this.page = this.activatedRoute.snapshot.queryParams.page;
+
       this.actionTitle = this.state === State.Created ? 'Created' : 'Updated';
     }
 
@@ -54,7 +69,7 @@ export class MemberActionContainerComponent implements OnInit {
       )
 
         if(this.state === State.Edit) {
-          const member =this.memberService.getMember(this.activatedRoute.snapshot.params.id);
+          const member = this.getMember(this.activatedRoute.snapshot.params.id);
           this.form.patchValue(member);
         }
   
@@ -64,12 +79,39 @@ export class MemberActionContainerComponent implements OnInit {
      
     action() : void {
       if(this.state === State.Edit){
-        this.memberService.editMember(this.activatedRoute.snapshot.params.id,this.form.value)
+        this.editMember(
+          this.activatedRoute.snapshot.params.id,
+          this.form.value
+          )
       }else {
-        this.memberService.addMember(this.form.value)
+        this.addMember(this.form.value)
+        // this.memberService.addMember(this.form.value)
       }
        
-        this.router.navigate(['/dashboard'])
+        this.router.navigate([`/${this.page}`])
     }
       
+
+    getMember(id: string){
+     return this.actionServic().getMember(id);
+         
+    }
+
+    editMember(id: string,data){
+      this.actionServic().editMember(id, data)
+    }
+
+    addMember(data){
+      this.actionServic().addMember(data)
+    }
+
+
+    actionServic(){
+      if(this.page ==='dashboard'){
+        return this.memberService;
+      }else if (this.page ==='team') {
+        return this.teamService;
+      }
+    }
+
 }
