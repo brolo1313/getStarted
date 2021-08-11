@@ -1,0 +1,17 @@
+<div *ngIf="loading$ | async; else postList">
+    Loading...
+</div>
+
+<ng-template #postList>
+    <button class="btnAdd"type="button" (click)="postService.creatPost()">ADD+</button>
+
+    <div  class="postList" *ngFor="let post of  postService.posts$ | async">
+        <span class="post__title"> <b>{{post.title}}</b> </span> 
+        <br>
+        {{post.id + ')'}}
+        {{post.text}}
+        <button class='btnPost' type="button">Edit</button>
+    </div>
+
+ 
+</ng-template>

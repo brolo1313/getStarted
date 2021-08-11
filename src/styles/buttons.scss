@@ -1,7 +1,19 @@
-// input {
-//     &.ng-invalid.ng-touched {
-//         border: 2px solid red;
-//     }
+.btnPost {
+    background-color: skyblue;
+    float: right;
+    margin-right: 25px;
+    border: 2px solid skyblue;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100px;
+}
 
-   
-// }
+.btnAdd {
+    background: lightgreen;
+    margin: 0 auto;
+    width: 200px;
+    display: block;
+    border-radius: 5px;
+    margin-top: 20px;
+    height: 34px;
+}
