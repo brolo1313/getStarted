@@ -11,6 +11,7 @@ import { entityConfig } from './core/entity-metadata';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { defaultDataServiceConfig } from './core/default-data-service.config';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -24,7 +25,8 @@ import { defaultDataServiceConfig } from './core/default-data-service.config';
             SharedModule.forRoot(),
             StoreModule.forRoot({}),
             EffectsModule.forRoot([]),
-            EntityDataModule.forRoot(entityConfig)],
+            EntityDataModule.forRoot(entityConfig),
+            ModalModule.forRoot()],
   providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
   bootstrap: [AppComponent],
 })

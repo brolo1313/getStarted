@@ -8,3 +8,11 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+// tipy js
+@import 'tippy.js/dist/tippy.css'; // optional for styling
+@import 'tippy.js/themes/material.css';
+
+// @import 'tippy.js/animations/shift-toward-subtle.css;
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";

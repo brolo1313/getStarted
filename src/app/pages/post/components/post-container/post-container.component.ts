@@ -24,10 +24,11 @@ export class PostContainerComponent implements OnInit {
       // this.getPosts();
       // this.update();
     this.postService.getPosts({} , true );
+    // this.postService.delete('4')
 
     // this.postService.creatPost({title: ' TEST TITLE NEW ADD '});
 
-    
+
       // this.add({
       //   id:'asd',
       //   title:'test123',
@@ -48,5 +49,7 @@ export class PostContainerComponent implements OnInit {
   update() {
     this.postService.update({ id: '4', title: 'New title update'});
   }
+
+ 
   
 }

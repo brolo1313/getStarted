@@ -17,21 +17,25 @@ export class ApiService {
      
   }
 
+  
+
   get<T> (url: string, params?:Params ): Observable<T>{
 
     if(!environment.production) {
       console.log(`GET: ${this.endPoint}/${url}`, params)
     }
-
+   
 
 
     return this.http
+    
         .get<T>(`${this.endPoint}/${url}`, { params })
         .pipe(tap((data) => {
             if(!environment.production) {
               console.log(`GET result: ${this.endPoint}/${url}`,data )
             }
         }));
+       
   }
 
 
@@ -40,8 +44,6 @@ export class ApiService {
     if(!environment.production) {
       console.log(`POST: ${this.endPoint}/${url}`, data)
     }
-
-
 
     return this.http
         .post<T>(`${this.endPoint}/${url}`, data, { params } )
@@ -52,4 +54,18 @@ export class ApiService {
         }));
   }
 
-}
+  delete<T>(url:string, id:string): Observable<T>{
+    if(!environment.production){
+      console.log(`Delete from ${this.endPoint}/${url}/${id}:`);
+    
+    return this.http
+      .delete<T>(`${this.endPoint}/${url}/${id}`)
+      .pipe(
+      tap( res => {
+        if(!environment.production){
+          console.log(`Delete result: , res`);
+        }
+      }))
+  }
+
+}}

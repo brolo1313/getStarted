@@ -18,6 +18,7 @@ import { TableTdComponent } from './table/table-td/table-td.component';
 import { BtnComponent } from './btn/btn.component';
 import { TableFooterComponent } from './table/table-footer/table-footer.component';
 import { InputComponent } from './form/input/input.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { InputComponent } from './form/input/input.component';
     BtnComponent,
     TableFooterComponent,
     InputComponent,
+    ModalComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -57,7 +59,8 @@ import { InputComponent } from './form/input/input.component';
     TableTdComponent,
     BtnComponent,
     TableFooterComponent,
-    InputComponent
+    InputComponent,
+    ModalComponent,
   ],
 })
 export class ComponentsModule {}

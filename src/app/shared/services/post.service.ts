@@ -1,3 +1,4 @@
+
 import { ApiService } from './api.service';
 import { Injectable } from '@angular/core';
 import { EntityCollectionServiceBase, EntityCollectionServiceElementsFactory } from '@ngrx/data';
@@ -13,7 +14,7 @@ export class PostService extends EntityCollectionServiceBase<Post> {
 
 
 
-  // static loading$: any;
+  static loading$: any;
 
   posts$ = new BehaviorSubject(null);
   
@@ -34,7 +35,6 @@ export class PostService extends EntityCollectionServiceBase<Post> {
       return;
     }
 
-
      this.apiService.get<Post[]>('posts', params).subscribe((data) => { 
         this.posts$.next(data); });
   }
@@ -45,4 +45,21 @@ export class PostService extends EntityCollectionServiceBase<Post> {
       this.posts$.next([...this.posts$.getValue(), data]);
     })
   }
+
+  deletePosts(id){
+    
+    this.apiService.delete('posts', id).subscribe(()=>{
+      const index = this.posts$.getValue().findIndex((i)=> i.id==id);
+      
+      const deletedPosts = this.posts$.getValue();
+      deletedPosts.splice(index, 1);
+      this.posts$.next(deletedPosts);
+      
+    });
+  }
+
+      deletePostsTwo(){
+        
+
+      }
 }
